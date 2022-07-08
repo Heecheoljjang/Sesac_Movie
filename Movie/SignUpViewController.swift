@@ -18,8 +18,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var plusLabel: UILabel!
     @IBOutlet weak var plusSwitch: UISwitch!
     @IBOutlet weak var hiddenLabel: UILabel!
-    
-    var isSuccess: Bool = false
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +31,10 @@ class SignUpViewController: UIViewController {
         
         setTextFieldUI(textField: locationTextField, placeholderText: "위치", keyboard: .default, security: false)
         
-        setTextFieldUI(textField: codeTextField, placeholderText: "추천 코드 입력", keyboard: .default, security: false)
+        setTextFieldUI(textField: codeTextField, placeholderText: "추천 코드 입력", keyboard: .numberPad, security: false)
         
-        signUpBtn.setTitle("회원가입", for: .normal)
-        signUpBtn.setTitleColor(.gray, for: .highlighted)
-        signUpBtn.setTitleColor(.black, for: .normal)
-        signUpBtn.backgroundColor = .white
-        signUpBtn.layer.cornerRadius = 8
-        signUpBtn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        setSignUpBtn(signUpBtn, title: "회원가입")
+        
         
         plusLabel.text = "추가 정보 입력"
         plusLabel.font = .boldSystemFont(ofSize: 18)
@@ -68,6 +63,16 @@ class SignUpViewController: UIViewController {
         textField.textColor = .white
         textField.borderStyle = .roundedRect
         textField.isSecureTextEntry = security
+    }
+    
+    func setSignUpBtn(_ button: UIButton, title: String) {
+        
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(.gray, for: .highlighted)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 8
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
     }
     
     @IBAction func tapView(_ sender: Any) {
@@ -99,7 +104,6 @@ class SignUpViewController: UIViewController {
                                             print("추천 코드를 다시 입력하세요.")
                                         } else {
                                             print("회원가입완료")
-                                            isSuccess = true
                                         }
                                     }
                                 }
