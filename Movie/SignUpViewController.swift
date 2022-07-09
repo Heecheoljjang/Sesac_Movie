@@ -18,7 +18,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var plusLabel: UILabel!
     @IBOutlet weak var plusSwitch: UISwitch!
     @IBOutlet weak var hiddenLabel: UILabel!
-        
+    @IBOutlet weak var titleLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,8 @@ class SignUpViewController: UIViewController {
         hiddenLabel.text = "짜잔"
         hiddenLabel.font = UIFont.boldSystemFont(ofSize: 18)
         hiddenLabel.textColor = .white
+        
+        titleLabel.textAlignment = .center
         
     }
     
