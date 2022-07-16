@@ -78,35 +78,69 @@ class SignUpViewController: UIViewController {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
     }
     
+    func showAlert(_ message: String) {
+        
+        if message == "회원가입완료" {
+            let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+            
+            alert.addAction(ok)
+            
+            present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: message, message: nil , preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+            alert.addAction(ok)
+            
+            present(alert, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
     @IBAction func tapView(_ sender: Any) {
         view.endEditing(true)
     }
     @IBAction func tapSignUpBtn(_ sender: Any) {
         view.endEditing(true)
         if emailTextField.text == "" {
-            print("이메일 또는 전화번호를 입력하세요.")
+            showAlert("이메일을 입력하세요.")
         } else {
             if pwTextField.text == "" {
-                print("비밀번호를 입력하세요.")
+                showAlert("비밀번호를 입력하세요.")
             } else {
                 if let pw = pwTextField.text {
                     if pw.count < 6 {
-                        print("비밀번호가 너무 짧습니다.")
+                        showAlert("비밀번호가 너무 짧습니다.")
                     } else {
                         if nameTextField.text == "" {
-                            print("닉네임을 입력하세요.")
+                            showAlert("닉네임을 입력하세요.")
                         } else {
                             if locationTextField.text == "" {
-                                print("위치를 입력하세요.")
+                                showAlert("위치를 입력하세요.")
                             } else {
                                 if codeTextField.text == "" {
-                                    print("추천코드를 입력하세요.")
+                                    showAlert("추천코드를 입력하세요.")
                                 } else {
                                     if let code = codeTextField.text {
                                         if Int(code) == nil {
-                                            print("추천 코드를 다시 입력하세요.")
+                                            showAlert("추천코드를 다시 입력하세요.")
                                         } else {
-                                            print("회원가입완료")
+                                            showAlert("회원가입완료")
+                                            
+                                            // 화면 dismiss시키고 userdefaults로 데이터 저장
+                                            if let email = emailTextField.text, let password = pwTextField.text, let nickname = nameTextField.text, let location = locationTextField.text, let code = codeTextField.text {
+                                                
+                                                let dataDic: [String: String] = ["email": email, "password": password, "nickname": nickname, "location": location, "code": code]
+                                                
+                                                UserDefaults.standard.set(dataDic, forKey: email)
+                                                
+                                                self.dismiss(animated: true)
+                                                
+                                            }
+                                            
                                         }
                                     }
                                 }
