@@ -80,24 +80,12 @@ class SignUpViewController: UIViewController {
     
     func showAlert(_ message: String) {
         
-        if message == "회원가입완료" {
-            let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-            
-            let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
-            
-            alert.addAction(ok)
-            
-            present(alert, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: message, message: nil , preferredStyle: .alert)
-            
-            let ok = UIAlertAction(title: "확인", style: .destructive, handler: nil)
-            alert.addAction(ok)
-            
-            present(alert, animated: true, completion: nil)
-        }
+        let alert = UIAlertController(title: message, message: nil , preferredStyle: .alert)
         
+        let ok = UIAlertAction(title: "확인", style: .destructive, handler: nil)
+        alert.addAction(ok)
         
+        present(alert, animated: true, completion: nil)
     }
     
     @IBAction func tapView(_ sender: Any) {
@@ -128,8 +116,7 @@ class SignUpViewController: UIViewController {
                                         if Int(code) == nil {
                                             showAlert("추천코드를 다시 입력하세요.")
                                         } else {
-                                            showAlert("회원가입완료")
-                                            
+
                                             // 화면 dismiss시키고 userdefaults로 데이터 저장
                                             if let email = emailTextField.text, let password = pwTextField.text, let nickname = nameTextField.text, let location = locationTextField.text, let code = codeTextField.text {
                                                 
@@ -137,8 +124,19 @@ class SignUpViewController: UIViewController {
                                                 
                                                 UserDefaults.standard.set(dataDic, forKey: email)
                                                 
-                                                self.dismiss(animated: true)
+                                                print(UserDefaults.standard.dictionary(forKey: email), email)
                                                 
+                                                // 알림
+                                                let alert = UIAlertController(title: "회원가입완료", message: nil, preferredStyle: .alert)
+                                                
+                                                let ok = UIAlertAction(title: "확인", style: .default) { _ in
+                                                    self.dismiss(animated: true)
+                                                }
+                                                
+                                                alert.addAction(ok)
+                                                
+                                                present(alert, animated: true, completion: nil)
+
                                             }
                                             
                                         }

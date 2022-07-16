@@ -215,6 +215,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="emailTFReturn:" destination="AUP-EC-ty4" eventType="editingDidEndOnExit" id="23g-ds-G48"/>
                                     <action selector="emailTextField:" destination="dxH-Rc-sh7" eventType="editingDidEnd" id="Yut-qX-tJ5"/>
                                 </connections>
                             </textField>
@@ -222,6 +223,9 @@
                                 <rect key="frame" x="41.5" y="502.5" width="331" height="49.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="pwTFReturn:" destination="AUP-EC-ty4" eventType="editingDidEndOnExit" id="2OR-AC-TuJ"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEEFLIX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EU-gt-Mc1">
                                 <rect key="frame" x="41.5" y="194" width="331" height="67"/>
@@ -251,6 +255,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C0e-3Z-GTf"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bNW-oC-jc4" firstAttribute="centerY" secondItem="qca-GA-fRp" secondAttribute="centerY" id="1z4-BV-9kY"/>
                             <constraint firstItem="1EU-gt-Mc1" firstAttribute="centerX" secondItem="ZFE-PJ-xfm" secondAttribute="centerX" id="2Y2-SN-pV1"/>
@@ -273,14 +278,24 @@
                             <constraint firstItem="bNW-oC-jc4" firstAttribute="height" secondItem="ZFE-PJ-xfm" secondAttribute="height" multiplier="0.05" id="xcX-0a-neH"/>
                             <constraint firstItem="1EU-gt-Mc1" firstAttribute="height" secondItem="ZFE-PJ-xfm" secondAttribute="height" multiplier="0.075" id="zl9-84-F2I"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Fgc-V0-2rg" appends="YES" id="4In-4p-L9Z"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="8H0-bA-6LD" id="wJK-ac-aVt"/>
+                        <outlet property="loginBtn" destination="qca-GA-fRp" id="sks-Z5-ZkV"/>
                         <outlet property="pwTextField" destination="q8B-AB-oXH" id="QLR-j9-7R4"/>
+                        <outlet property="signUpBtn" destination="bNW-oC-jc4" id="gRh-lK-xyD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTA-fe-Ggb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="dxH-Rc-sh7" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="Fgc-V0-2rg">
+                    <connections>
+                        <action selector="tapBackgroundView:" destination="AUP-EC-ty4" id="v6E-uk-BRo"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-30" y="118"/>
         </scene>
