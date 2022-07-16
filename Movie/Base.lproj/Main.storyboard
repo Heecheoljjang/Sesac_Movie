@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="-1301" y="121"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="F1F-cd-0iR">
             <objects>
-                <viewController id="AUP-EC-ty4" sceneMemberID="viewController">
+                <viewController id="AUP-EC-ty4" customClass="LoginViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZFE-PJ-xfm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,6 +214,9 @@
                                 <rect key="frame" x="41.5" y="423.5" width="331" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailTextField:" destination="dxH-Rc-sh7" eventType="editingDidEnd" id="Yut-qX-tJ5"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8B-AB-oXH">
                                 <rect key="frame" x="41.5" y="502.5" width="331" height="49.5"/>
@@ -232,12 +235,18 @@
                                 <color key="backgroundColor" red="0.98431372640000003" green="0.89803922179999995" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="회원가입"/>
+                                <connections>
+                                    <action selector="tapSignUpBtn:" destination="AUP-EC-ty4" eventType="touchUpInside" id="HSl-CG-gwr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qca-GA-fRp">
                                 <rect key="frame" x="214.5" y="602" width="158" height="44.5"/>
                                 <color key="backgroundColor" red="0.98431372640000003" green="0.89803922179999995" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="tapLoginBtn:" destination="AUP-EC-ty4" eventType="touchUpInside" id="JIJ-1C-Krc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C0e-3Z-GTf"/>
@@ -265,15 +274,20 @@
                             <constraint firstItem="1EU-gt-Mc1" firstAttribute="height" secondItem="ZFE-PJ-xfm" secondAttribute="height" multiplier="0.075" id="zl9-84-F2I"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="8H0-bA-6LD" id="wJK-ac-aVt"/>
+                        <outlet property="pwTextField" destination="q8B-AB-oXH" id="QLR-j9-7R4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTA-fe-Ggb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dxH-Rc-sh7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-30" y="118"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Rtg-8v-NMe">
             <objects>
-                <viewController id="3cK-H8-bz7" customClass="SignUpViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="3cK-H8-bz7" customClass="SignUpViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cxV-wS-e7o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,7 +420,7 @@
         <!--Second View Controller-->
         <scene sceneID="Vdw-Qp-m1b">
             <objects>
-                <viewController id="NLl-ei-YMv" customClass="SecondViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="NLl-ei-YMv" customClass="SecondViewController" customModule="Movie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="irl-2O-Isp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
