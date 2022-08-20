@@ -119,26 +119,26 @@ class SignUpViewController: UIViewController {
 
                                             // 화면 dismiss시키고 userdefaults로 데이터 저장
                                             if let email = emailTextField.text, let password = pwTextField.text, let nickname = nameTextField.text, let location = locationTextField.text, let code = codeTextField.text {
-                                                
+
                                                 let dataDic: [String: String] = ["email": email, "password": password, "nickname": nickname, "location": location, "code": code]
-                                                
+
                                                 UserDefaults.standard.set(dataDic, forKey: email)
-                                                
+
                                                 print(UserDefaults.standard.dictionary(forKey: email), email)
-                                                
+
                                                 // 알림
                                                 let alert = UIAlertController(title: "회원가입완료", message: nil, preferredStyle: .alert)
-                                                
+
                                                 let ok = UIAlertAction(title: "확인", style: .default) { _ in
                                                     self.dismiss(animated: true)
                                                 }
-                                                
+
                                                 alert.addAction(ok)
-                                                
+
                                                 present(alert, animated: true, completion: nil)
 
                                             }
-                                            
+
                                         }
                                     }
                                 }
@@ -148,6 +148,7 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+       
     }
     @IBAction func tapSwitch(_ sender: Any) {
         if plusSwitch.isOn {
